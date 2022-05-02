@@ -58,6 +58,16 @@ subplot(p1,p2,p3,p4)
 
 ```
 
+
+En el primer gráfico (de la izquierda) podemos ver que cuántos más días hayan transcurrido desde 2011 más número de biciletas se alquilan. Podemos generalizar esta conclusión para todos los rangos ya que la distribución de las observaciones es homogenea.
+
+En cuanto a la temperatura podemos observar que con una temperatura entre 15ºC y 20ºC encontramos los valores más altos de alquiler de bicicletas. En este caso, las observaciones que se obtienen a temperaturas menores a 0ºC y mayores a 30ºC no son representativas. 
+
+Para el estudio de la humedad, solo se tienen observaciones significativas para valores entre 40% y 90% de humedad. A mayor humedad, menos bicicletas se alquilan. 
+
+Finalmente, respecto a la velocidad del viento, como cabe esperar, cuánto mayor sea esa velocidad, el alquiler de bicicletas descenderá. Cuando la velocidad del viento supera los 20km/h, las observaciones empiezan a dejar de ser significativas.
+
+
 ## EXERCISE:
 
 Generate a 2D Partial Dependency Plot with humidity and temperature to predict the number of bikes rented depending of those parameters.
@@ -93,6 +103,8 @@ for(i in 1:nrow(th)){
 p = ggplot(th, aes(x=temp, y=hum, fill=p))+geom_tile(width=10, height=15)+geom_rug()
 p
 ```
+
+Para bajas temperaturas y altas humedades no se puede obtener ninguna conclusión ya que hay escasez de observaciones. Sin embargo, para humedades entre 50% y 87% (aproximadamente) y temperaturas de entre 7ºC y 27ºC (aproximadamente) podemos decir que a mayor temperatura y menor humedad, más bicicletas se alquilan.También podemos ver un salto en el número de bicicletas alquiladas cuando la temperatura cambia de los 12ºC a los 18ºC, más o menos. Es decir, menor temperatura implica menos alquiler.
 
 
 ## EXERCISE:
@@ -136,4 +148,10 @@ p4= ggplot(sampled, aes(x=floors, y=results$floors)) + geom_line()+geom_rug(side
 
 subplot(p1,p2,p3,p4)
 ```
+En el caso de las habitaciones, al tratarse de una variable discreta, podemos ver que el precio de la vivienda es mayor para casas con 2 y 5 habitaciones que para 3 y 4. Sin embargo, cabe destacar que para el caso de 2 y 5 habitaciones se han recogido más datos que para el resto.
 
+Respecto a los baños, la tendencia es que aumenta el precio de la vivienda cuantos más baños hay. Sería recomendable fijarse en el rango de 2 a 4 baños.
+
+En cuanto al tamaño de la vivienda, se tiene un gran número de observaciones para el rango de 500 m^2 a 4000m^2, donde podemos apreciar una tendencia positiva, es decir, más metros cuadrados por vivienda implica precio más alto.
+
+Por último, como en los otros casos, a mayor número de _floors_ mayor precio de la vivienda. En este caso se tienen datos bastante equitativos para todos los valores.
